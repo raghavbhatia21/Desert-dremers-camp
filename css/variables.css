@@ -1,0 +1,183 @@
+/* ============================================================
+   ROYAL HERITAGE RESORT — Design Tokens
+   ============================================================
+   All design decisions centralized here. Change a token, 
+   change the entire site.
+   ============================================================ */
+
+:root {
+  /* ─── Primary Desert Palette ─── */
+  --color-maroon: #A73E12;
+  --color-maroon-light: #C45B20;
+  --color-maroon-dark: #7A2606;
+  
+  --color-terracotta: #C45B20;
+  --color-terracotta-light: #DE753B;
+  --color-terracotta-dark: #8E3812;
+
+  --color-emerald: #1B5E4B;
+  --color-emerald-light: #2A7A64;
+  --color-emerald-dark: #0F3B2F;
+  
+  --color-navy: #0B1325;
+  --color-navy-light: #16223B;
+  --color-navy-dark: #070C18;
+  
+  /* ─── Accent: Sand Dune Gold ─── */
+  --color-gold: #D49A3D;
+  --color-gold-light: #F0C46B;
+  --color-gold-dark: #A9711C;
+  --color-gold-bright: #F5B82E;
+  --color-gold-shimmer: linear-gradient(135deg, #D49A3D 0%, #F5B82E 50%, #C45B20 100%);
+  
+  /* ─── WhatsApp Brand Tokens ─── */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA59;
+  --color-whatsapp-dark: #128C7E;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.35);
+
+  /* ─── Neutrals & Sand Tones ─── */
+  --color-cream: #FAF5EB;
+  --color-cream-dark: #F2E8D3;
+  --color-ivory: #FDFBF7;
+  --color-sand: #E8D9C0;
+  --color-stone: #C7B89E;
+  --color-charcoal: #231F1B;
+  --color-graphite: #423C36;
+  --color-slate: #665F58;
+  --color-silver: #9E968E;
+  --color-mist: #DCD4C8;
+  --color-white: #FFFFFF;
+  --color-black: #0A0A0A;
+  
+  /* ─── Surface & Background ─── */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-ivory);
+  --bg-dark: #0B1325;
+  --bg-darker: #050A14;
+  --bg-card: var(--color-white);
+  --bg-card-hover: #FBF7EF;
+  --bg-overlay: rgba(11, 19, 37, 0.65);
+  --bg-overlay-heavy: rgba(7, 12, 24, 0.85);
+  
+  /* ─── Text ─── */
+  --text-primary: var(--color-charcoal);
+  --text-secondary: var(--color-graphite);
+  --text-muted: var(--color-slate);
+  --text-on-dark: #FAF5EB;
+  --text-on-dark-muted: #C7BCAE;
+  --text-accent: var(--color-gold);
+  --text-link: var(--color-terracotta);
+  --text-link-hover: var(--color-terracotta-light);
+  
+  /* ─── Typography ─── */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  
+  --fs-hero: clamp(2.8rem, 6vw, 5.5rem);
+  --fs-h1: clamp(2.2rem, 4vw, 3.5rem);
+  --fs-h2: clamp(1.8rem, 3vw, 2.8rem);
+  --fs-h3: clamp(1.4rem, 2.5vw, 2rem);
+  --fs-h4: clamp(1.15rem, 2vw, 1.5rem);
+  --fs-h5: clamp(1rem, 1.5vw, 1.25rem);
+  --fs-body: clamp(0.95rem, 1.2vw, 1.1rem);
+  --fs-body-lg: clamp(1.05rem, 1.4vw, 1.25rem);
+  --fs-small: clamp(0.8rem, 1vw, 0.9rem);
+  --fs-xs: clamp(0.7rem, 0.9vw, 0.8rem);
+  --fs-label: 0.75rem;
+  
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+  
+  --lh-tight: 1.2;
+  --lh-snug: 1.35;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+  
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.05em;
+  --ls-wider: 0.1em;
+  --ls-widest: 0.2em;
+  
+  /* ─── Spacing (8px grid) ─── */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+  
+  /* ─── Layout ─── */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1440px;
+  --container-padding: var(--space-6);
+  
+  /* ─── Borders ─── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  --border-thin: 1px solid var(--color-sand);
+  --border-gold: 1px solid var(--color-gold);
+  --border-gold-thick: 2px solid var(--color-gold);
+  
+  /* ─── Shadows ─── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-gold: 0 4px 20px rgba(200, 169, 110, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  /* ─── Transitions ─── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  
+  --transition-base: all var(--duration-normal) var(--ease-out);
+  --transition-fast: all var(--duration-fast) var(--ease-out);
+  --transition-slow: all var(--duration-slow) var(--ease-out);
+  --transition-transform: transform var(--duration-normal) var(--ease-out);
+  --transition-opacity: opacity var(--duration-normal) var(--ease-out);
+  --transition-colors: color var(--duration-fast) var(--ease-out),
+                        background-color var(--duration-fast) var(--ease-out),
+                        border-color var(--duration-fast) var(--ease-out);
+  
+  /* ─── Z-index scale ─── */
+  --z-behind: -1;
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 500;
+  --z-overlay: 800;
+  --z-modal: 900;
+  --z-toast: 1000;
+  
+  /* ─── Decorative ─── */
+  --ornament-line: linear-gradient(90deg, transparent 0%, var(--color-gold) 20%, var(--color-gold) 80%, transparent 100%);
+  --texture-opacity: 0.03;
+}

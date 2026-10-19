@@ -1,0 +1,34 @@
+# Royal Heritage Resort
+
+A premium heritage-inspired luxury resort offering boutique glamping and cottage stays nestled in mountains.
+
+## Core Information
+- **Location**: Near Hills, District, State, India — 000000
+- **Primary Contact**: +91 00000 00000 | reservations@royalheritageresort.com
+- **Check-in/out**: Check-in at 2:00 PM, Check-out at 11:00 AM.
+- **Pet Policy**: Pets are not permitted on the resort premises due to surrounding natural forest zones.
+- **Cancellation Policy**: Full refund available on cancellations requested up to 48 hours prior to check-in.
+
+## Accommodations
+- **Royal Safari Tent**:
+  - Description: Premium 350 sq. ft. canvas tent with custom heritage interior textiles and brass details.
+  - Features: King bed, en-suite bathroom with hot shower, private wood veranda, mountain view.
+  - Base Tariffs: ₹8,500 per night (plus taxes).
+- **Heritage Stone Cottage**:
+  - Description: Traditional hand-built stone 550 sq. ft. cottage with exposed beams and rustic charm.
+  - Features: Twin or king bed options, living area, private garden enclosure, wood-burning fireplace.
+  - Base Tariffs: ₹12,000 per night (plus taxes).
+
+## Amenities & Activities
+- **The Royal Table Restaurant**: Authentic heritage recipes, organic farm-to-table salads, open-air candlelit spaces.
+- **Ayurvedic Spa & Wellness**: Ayurvedic oil massage therapies, sauna, meditation walks, and wellness packages.
+- **Infinity Pool**: Temperature-controlled cliffside pool with valley viewpoints.
+- **Activities**: Nature hikes, archery range, rock climbing walls, evening stargazing, campfire assemblies, cycling.
+
+## Direct URL Resources
+- **Home Page**: [https://royalheritageresort.com/index.html](https://royalheritageresort.com/index.html)
+- **Accommodations List**: [https://royalheritageresort.com/accommodations.html](https://royalheritageresort.com/accommodations.html)
+- **Amenities Detail**: [https://royalheritageresort.com/amenities.html](https://royalheritageresort.com/amenities.html)
+- **Booking Wizard**: [https://royalheritageresort.com/booking.html](https://royalheritageresort.com/booking.html)
+- **Booking Status Portal**: [https://royalheritageresort.com/booking-status.html](https://royalheritageresort.com/booking-status.html)
+- **FAQ Directory**: [https://royalheritageresort.com/faq.html](https://royalheritageresort.com/faq.html)

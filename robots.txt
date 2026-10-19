@@ -1,0 +1,32 @@
+# ============================================================
+# ROYAL HERITAGE RESORT — Robots.txt
+# ============================================================
+# Allow search engines and generative AI crawlers to discover 
+# and index the resort's services.
+# ============================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /confirmation.html
+Disallow: /booking-status.html
+
+# AI Crawler Allow-lists (AEO Optimization)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://royalheritageresort.com/sitemap.xml

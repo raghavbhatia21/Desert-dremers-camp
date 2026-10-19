@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Seeding Utility | Desert Dreamers Camp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FDF8F0;
+      color: #1A1A1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E3D9C6;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      color: #5C1D24;
+    }
+    p {
+      color: #555555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #C8A96E;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .btn:hover {
+      background: #B0925A;
+    }
+    .btn:disabled {
+      background: #CCCCCC;
+      cursor: not-allowed;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .success {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+    .error {
+      background-color: #FFEBEE;
+      color: #C62828;
+      border: 1px solid #FFCDD2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Database Seeder</h1>
+    <p>
+      Click the button below to initialize your live Firestore database with the required accommodations inventory logs (Safari Tents and Stone Cottages).
+    </p>
+
+    <button id="seed-btn" class="btn">Seed Accommodations Data</button>
+    <div id="status-box" class="status"></div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+
+  <script>
+    const seedBtn = document.getElementById('seed-btn');
+    const statusBox = document.getElementById('status-box');
+
+    const accommodationsData = [
+      {
+        id: "tent",
+        name: "Royal Safari Tent",
+        type: "tent",
+        basePrice: 8500,
+        maxGuests: 3,
+        isActive: true,
+        sortOrder: 1,
+        size: "450 sq ft",
+        view: "Valley View",
+        bedType: "King Bed",
+        description: "Step into a world of regal glamping. Our spacious canvas tents are adorned with heritage textiles, plush bedding, and brass accents. Each tent sits on a private wooden deck overlooking the rolling hills, with en-suite bathroom facilities.",
+        images: ["../assets/images/tent.png"],
+        amenities: ["🛏️ King-size Bed", "🚿 En-suite Bathroom", "🌳 Private Deck", "📶 Free Wi-Fi", "☕ Tea/Coffee Maker", "🌅 Mountain View"]
+      },
+      {
+        id: "cottage",
+        name: "Heritage Stone Cottage",
+        type: "cottage",
+        basePrice: 12000,
+        maxGuests: 4,
+        isActive: true,
+        sortOrder: 2,
+        size: "650 sq ft",
+        view: "Mountain & Pool View",
+        bedType: "King Bed + Sofa Bed",
+        description: "Our hand-built stone cottages blend traditional architecture with modern comfort. Featuring a spacious living area, private garden, and a cozy fireplace, these cottages are ideal for families and extended stays.",
+        images: ["../assets/images/cottage.png"],
+        amenities: ["🛏️ Twin/King Bed", "🏡 Living Area", "🔥 Fireplace", "🌿 Private Garden", "🚿 Hot Shower", "📶 Free Wi-Fi"]
+      }
+    ];
+
+    const offersData = [
+      {
+        id: "romance",
+        title: "Romance Under the Stars",
+        type: "Honeymoon",
+        discount: "20% OFF",
+        desc: "A bespoke honeymoon package in our Royal Safari Tent, including candlelit dinner, couples' spa treatment, and a private bonfire evening.",
+        features: ["2 nights in Royal Safari Tent", "Private candlelit dinner", "60-min couples' spa", "Welcome hamper & flowers"],
+        code: "HONEYMOON20",
+        isActive: true
+      },
+      {
+        id: "family",
+        title: "Family Adventure Pack",
+        type: "Family",
+        discount: "15% OFF",
+        desc: "The ultimate family getaway in our Heritage Stone Cottage with activities, dining, and adventures for all ages.",
+        features: ["3 nights in Heritage Cottage", "All meals included", "Guided nature trek", "Kids' activity program"],
+        code: "FAMILY15",
+        isActive: true
+      },
+      {
+        id: "wellness",
+        title: "Wellness Retreat",
+        type: "Wellness",
+        discount: "25% OFF",
+        desc: "A transformative 4-night wellness journey combining Ayurvedic spa treatments, yoga, meditation, and nourishing cuisine.",
+        features: ["4 nights accommodation", "Daily spa treatments", "Morning yoga & meditation", "Wellness cuisine meals"],
+        code: "WELLNESS25",
+        isActive: true
+      },
+      {
+        id: "weekend",
+        title: "Weekend Escape",
+        type: "Weekend",
+        discount: "10% OFF",
+        desc: "Quick city escape for the weekend with a perfect blend of relaxation and adventure activities.",
+        features: ["2 nights (Fri-Sun)", "Breakfast & dinner", "One adventure activity", "Late checkout (1 PM)"],
+        code: "WEEKEND10",
+        isActive: true
+      }
+    ];
+
+    seedBtn.addEventListener('click', async () => {
+      if (!db) {
+        showStatus("Firebase is not initialized. Please check js/firebase-config.js configuration.", "error");
+        return;
+      }
+
+      seedBtn.disabled = true;
+      seedBtn.textContent = "Seeding...";
+      statusBox.style.display = "none";
+
+      try {
+        // Write accommodations
+        await Promise.all(
+          accommodationsData.map(item => db.collection('accommodations').doc(item.id).set(item))
+        );
+
+        // Write special offers
+        await Promise.all(
+          offersData.map(item => db.collection('offers').doc(item.id).set(item))
+        );
+
+        showStatus("✅ Database seeded successfully! Accommodations & Special Offers are now live.", "success");
+        seedBtn.textContent = "Seeded";
+      } catch (err) {
+        console.error(err);
+        showStatus("❌ Failed to seed database: " + err.message, "error");
+        seedBtn.disabled = false;
+        seedBtn.textContent = "Seed Database";
+      }
+    });
+
+    function showStatus(msg, type) {
+      statusBox.textContent = msg;
+      statusBox.className = `status ${type}`;
+      statusBox.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

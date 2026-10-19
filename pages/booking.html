@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserve your luxury Swiss tent or dune cottage at Desert Dreamers Camp in Sam Sand Dunes, Jaisalmer. Get live transparent pricing quotes and book directly via WhatsApp with zero booking fees.">
+  <meta name="keywords" content="Desert Dreamers Camp, Sam sand dunes camp booking, Jaisalmer tent booking, luxury Swiss tent Jaisalmer, desert camp WhatsApp booking">
+  <title>WhatsApp Camp Booking & Live Quote | Desert Dreamers Camp — Sam Sand Dunes, Jaisalmer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/booking.css">
+
+  <style>
+    .desert-booking-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--space-8);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-4);
+    }
+    @media (max-width: 900px) {
+      .desert-booking-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tent-picker-card {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      border: 2px solid var(--color-sand);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      cursor: pointer;
+      background: var(--bg-card);
+      transition: var(--transition-base);
+    }
+    .tent-picker-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+    .tent-picker-card.selected {
+      border-color: var(--color-terracotta);
+      background: #FFF9F2;
+      box-shadow: 0 4px 15px rgba(196, 91, 32, 0.15);
+    }
+    .tent-picker-img {
+      width: 120px;
+      height: 90px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .tent-picker-info {
+      flex: 1;
+    }
+    .activity-checkbox-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-sand);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-2);
+      background: var(--bg-card);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .activity-checkbox-card:hover {
+      border-color: var(--color-gold);
+      background: #FDFBF7;
+    }
+    .activity-checkbox-card.checked {
+      border-color: var(--color-gold);
+      background: #FDF7EC;
+    }
+    .activity-checkbox-card input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--color-terracotta);
+      margin-right: 12px;
+    }
+    .inclusions-box {
+      background: #F8F1E5;
+      border-left: 4px solid var(--color-gold);
+      padding: var(--space-4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: var(--space-6);
+    }
+    .inclusions-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+    .inclusions-box li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+    .inclusions-box li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-emerald);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="page-transition">
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../index.html" class="logo" aria-label="Desert Dreamers Camp - Home">
+          <div class="logo-text">
+            Desert Dreamers
+            <span class="logo-subtitle">Camp • Sam Sand Dunes</span>
+          </div>
+        </a>
+        <nav class="main-nav" id="main-nav" role="navigation">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="accommodations.html" class="nav-link">Swiss Tents</a>
+          <a href="amenities.html" class="nav-link">Experiences</a>
+          <a href="dining.html" class="nav-link">Dining</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="offers.html" class="nav-link">Packages</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="header-cta">
+          <a href="booking.html" class="btn btn-whatsapp btn-sm" id="header-whatsapp-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#FFF" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.17 8.17 0 0 1-5.82 2.41c-1.47 0-2.92-.39-4.18-1.14l-.3-.18-3.11.82.83-3.03-.2-.31a8.19 8.19 0 0 1-1.26-4.39c0-4.54 3.7-8.24 8.22-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3"/></svg>
+            WhatsApp Book
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Swiss Tents</a>
+    <a href="amenities.html" class="mobile-nav-link">Experiences</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Packages</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="booking.html" class="btn btn-whatsapp" style="width:100%;">Book via WhatsApp</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO TITLE -->
+    <section style="padding: var(--space-20) 0 var(--space-8); background: linear-gradient(180deg, var(--bg-dark) 0%, #16223B 100%); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label" style="color: var(--color-gold);">Direct WhatsApp Reservation</p>
+        <h1 class="section-title" style="color: var(--text-on-dark); font-size: clamp(2rem, 4vw, 3rem);">Book Your Desert Retreat</h1>
+        <div class="ornament"><span class="ornament-icon">✦</span></div>
+        <p style="color: var(--text-on-dark-muted); max-width: 650px; margin: 0 auto; font-size: var(--fs-body);">
+          Select your Swiss tent, choose thrilling desert safaris, get an instant transparent quote, and finalize with the camp manager on WhatsApp. Zero commissions, zero hidden fees!
+        </p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BOOKING LAYOUT -->
+    <div class="desert-booking-grid">
+
+      <!-- LEFT: CUSTOMIZATION FORM -->
+      <div class="booking-controls">
+
+        <!-- 1. DATES & GUESTS -->
+        <div class="editor-panel" style="background: var(--bg-card); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-sand); margin-bottom: var(--space-6);">
+          <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-4); color: var(--color-terracotta);">
+            1. Select Stay Dates & Guests
+          </h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+            <div class="form-group">
+              <label class="form-label" for="booking-checkin">Check-in Date</label>
+              <input type="date" class="form-input" id="booking-checkin" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="booking-checkout">Check-out Date</label>
+              <input type="date" class="form-input" id="booking-checkout" required>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <div class="form-group">
+              <label class="form-label" for="booking-adults">Adults (12+ yrs)</label>
+              <select class="form-select" id="booking-adults">
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults (Standard)</option>
+                <option value="3">3 Adults (+Extra Bed)</option>
+                <option value="4">4 Adults</option>
+                <option value="5">5 Adults</option>
+                <option value="6">6+ Group</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="booking-children">Children (6-12 yrs)</label>
+              <select class="form-select" id="booking-children">
+                <option value="0" selected>0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SELECT ACCOMMODATION TYPE -->
+        <div class="editor-panel" style="background: var(--bg-card); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-sand); margin-bottom: var(--space-6);">
+          <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-4); color: var(--color-terracotta);">
+            2. Choose Desert Accommodation
+          </h2>
+
+          <div class="tent-picker-card selected" data-tent-id="royal_ac_tent">
+            <img src="../assets/images/tent.png" alt="Royal AC Swiss Tent" class="tent-picker-img">
+            <div class="tent-picker-info">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <h3 style="font-size: 1.1rem; margin: 0; font-family: var(--font-display);">Royal AC Swiss Tent</h3>
+                <span class="badge badge-emerald" style="font-size: 0.7rem;">Most Popular</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Full AC, Attached Bathroom, Verandah facing Sand Dunes</p>
+              <div style="font-weight: 700; color: var(--color-terracotta); font-size: 1.1rem;" id="rate-display-royal_ac_tent">
+                ₹5,500 <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tent-picker-card" data-tent-id="luxury_swiss_tent">
+            <img src="../assets/images/hero.png" alt="Luxury Heritage Swiss Tent" class="tent-picker-img">
+            <div class="tent-picker-info">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <h3 style="font-size: 1.1rem; margin: 0; font-family: var(--font-display);">Luxury Heritage Swiss Tent</h3>
+                <span class="badge" style="background: var(--color-sand); color: var(--color-charcoal); font-size: 0.7rem;">Authentic</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Non-AC / Cooler, Traditional decor, King Bed, Attached Bath</p>
+              <div style="font-weight: 700; color: var(--color-terracotta); font-size: 1.1rem;" id="rate-display-luxury_swiss_tent">
+                ₹4,200 <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tent-picker-card" data-tent-id="maharani_suite">
+            <img src="../assets/images/cottage.png" alt="Maharani Sunset Dune Suite" class="tent-picker-img">
+            <div class="tent-picker-info">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <h3 style="font-size: 1.1rem; margin: 0; font-family: var(--font-display);">Maharani Sunset Dune Suite</h3>
+                <span class="badge badge-gold" style="font-size: 0.7rem;">VIP Cottage</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 4px 0 8px;">Elevated Dune Cottage, Panoramic Sunset Deck, Private Bonfire Sit-out</p>
+              <div style="font-weight: 700; color: var(--color-terracotta); font-size: 1.1rem;" id="rate-display-maharani_suite">
+                ₹7,800 <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. DESERT SAFARIS & EXPERIENCES ADD-ONS -->
+        <div class="editor-panel" style="background: var(--bg-card); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-sand); margin-bottom: var(--space-6);">
+          <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-4); color: var(--color-terracotta);">
+            3. Add Desert Safaris & Experiences
+          </h2>
+          <p style="font-size: var(--fs-small); color: var(--text-muted); margin-bottom: var(--space-4);">
+            Enhance your Jaisalmer adventure with our licensed desert safari vehicles and experienced guides:
+          </p>
+
+          <label class="activity-checkbox-card" id="act-label-camel_safari">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="act-camel_safari" value="camel_safari">
+              <div>
+                <strong style="font-size: 0.95rem;">Sunset Camel Safari in Sam Dunes</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 2px 0 0;">Serene ride into deep golden sand dunes for sunset viewing</p>
+              </div>
+            </div>
+            <span style="font-weight: 600; color: var(--color-terracotta); font-size: 0.9rem;" id="price-act-camel_safari">+₹600 / person</span>
+          </label>
+
+          <label class="activity-checkbox-card" id="act-label-jeep_bashing">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="act-jeep_bashing" value="jeep_bashing">
+              <div>
+                <strong style="font-size: 0.95rem;">4x4 Thar Jeep Dune Bashing</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 2px 0 0;">Thrilling high-speed roller coaster ride across undulating dunes</p>
+              </div>
+            </div>
+            <span style="font-weight: 600; color: var(--color-terracotta); font-size: 0.9rem;" id="price-act-jeep_bashing">+₹1,800 / jeep</span>
+          </label>
+
+          <label class="activity-checkbox-card" id="act-label-quad_biking">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="act-quad_biking" value="quad_biking">
+              <div>
+                <strong style="font-size: 0.95rem;">Desert Quad Biking / ATV Ride (20 Mins)</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 2px 0 0;">Drive high-powered all-terrain 4x4 quad bike through sand trails</p>
+              </div>
+            </div>
+            <span style="font-weight: 600; color: var(--color-terracotta); font-size: 0.9rem;" id="price-act-quad_biking">+₹1,200 / person</span>
+          </label>
+
+          <label class="activity-checkbox-card" id="act-label-candlelight_dinner">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="act-candlelight_dinner" value="candlelight_dinner">
+              <div>
+                <strong style="font-size: 0.95rem;">Romantic Candlelight Dune Dinner</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 2px 0 0;">Private setup atop isolated dune with butler & brass lanterns</p>
+              </div>
+            </div>
+            <span style="font-weight: 600; color: var(--color-terracotta); font-size: 0.9rem;" id="price-act-candlelight_dinner">+₹3,500 / couple</span>
+          </label>
+
+          <label class="activity-checkbox-card" id="act-label-parasailing">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="act-parasailing" value="parasailing">
+              <div>
+                <strong style="font-size: 0.95rem;">Desert Parasailing Experience</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 2px 0 0;">Fly high over Sam dunes with 360-degree desert views</p>
+              </div>
+            </div>
+            <span style="font-weight: 600; color: var(--color-terracotta); font-size: 0.9rem;" id="price-act-parasailing">+₹1,500 / person</span>
+          </label>
+        </div>
+
+        <!-- 4. GUEST CONTACT INFO -->
+        <div class="editor-panel" style="background: var(--bg-card); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-sand);">
+          <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-4); color: var(--color-terracotta);">
+            4. Primary Guest Details
+          </h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-4);">
+            <div class="form-group">
+              <label class="form-label" for="guest-name">Full Name *</label>
+              <input type="text" class="form-input" id="guest-name" placeholder="e.g. Raghav Sharma" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guest-phone">WhatsApp / Contact Phone *</label>
+              <input type="tel" class="form-input" id="guest-phone" placeholder="e.g. 9876543210" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: var(--space-4);">
+            <label class="form-label" for="guest-city">City / Hometown</label>
+            <input type="text" class="form-input" id="guest-city" placeholder="e.g. New Delhi, Mumbai, Ahmedabad">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="guest-requests">Special Requests / Pickup Requirement</label>
+            <textarea class="form-input" id="guest-requests" rows="2" placeholder="e.g. Need taxi pickup from Jaisalmer Railway Station, Jain food required..."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: STICKY QUOTE BREAKDOWN & WHATSAPP TRIGGER -->
+      <div>
+        <div class="desert-quote-card">
+          <div class="quote-header">
+            <span class="badge badge-gold" style="font-size: 0.75rem; margin-bottom: 8px;">Sam Sand Dunes, Jaisalmer</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin: 4px 0;" id="summary-tent-title">Royal AC Swiss Tent</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">MAP Plan: Breakfast + Rajasthani Buffet Dinner</p>
+          </div>
+
+          <!-- FREE INCLUSIONS SUMMARY -->
+          <div class="inclusions-box">
+            <strong style="font-size: 0.85rem; color: var(--color-terracotta);">Included In Your Camp Stay:</strong>
+            <ul>
+              <li>Traditional Aarti, Tikka & Dhol welcome</li>
+              <li>Evening Tea/Coffee & Pakoras on dunes</li>
+              <li>Kalbeliya Folk Dance & Campfire Night</li>
+              <li>Grand Rajasthani Buffet Dinner</li>
+              <li>Morning Desert Sunrise Breakfast</li>
+            </ul>
+          </div>
+
+          <!-- PRICE BREAKDOWN -->
+          <div style="margin-bottom: var(--space-4);">
+            <div class="quote-row">
+              <span id="summary-nights-label">Stay Duration:</span>
+              <strong id="summary-nights-val">1 Night</strong>
+            </div>
+            <div class="quote-row">
+              <span>Guests:</span>
+              <strong id="summary-guests-val">2 Adults</strong>
+            </div>
+            <div class="quote-row">
+              <span>Tent Base Cost:</span>
+              <span id="summary-tent-cost">₹5,500</span>
+            </div>
+            <div class="quote-row" id="summary-extra-guests-row" style="display: none;">
+              <span>Extra Guests/Bed:</span>
+              <span id="summary-extra-guests-cost">₹0</span>
+            </div>
+            <div class="quote-row" id="summary-activities-row" style="display: none;">
+              <span>Selected Safaris:</span>
+              <span id="summary-activities-cost">₹0</span>
+            </div>
+            <div class="quote-row total">
+              <span>Estimated Total:</span>
+              <span class="price" id="summary-grand-total">₹5,500</span>
+            </div>
+          </div>
+
+          <!-- WHATSAPP CTA -->
+          <button type="button" class="btn btn-whatsapp btn-lg" id="btn-book-whatsapp" style="width: 100%; font-size: 1rem; padding: 16px 20px; gap: 10px; margin-bottom: var(--space-3);">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#FFF" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.17 8.17 0 0 1-5.82 2.41c-1.47 0-2.92-.39-4.18-1.14l-.3-.18-3.11.82.83-3.03-.2-.31a8.19 8.19 0 0 1-1.26-4.39c0-4.54 3.7-8.24 8.22-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3"/></svg>
+            Book via WhatsApp Now
+          </button>
+
+          <a href="tel:+919876543210" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" id="btn-call-manager">
+            📞 Direct Call Reception
+          </a>
+
+          <div style="margin-top: var(--space-4); font-size: 0.78rem; color: var(--text-muted); text-align: center; line-height: 1.5;">
+            🔒 <strong>100% Secure Direct Booking</strong><br>
+            Pay advance directly to the resort via UPI QR or Bank Transfer upon confirming tent availability.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background: var(--bg-darker); color: var(--text-on-dark-muted); padding: var(--space-12) 0 var(--space-6);">
+    <div class="container" style="text-align: center;">
+      <h3 style="font-family: var(--font-display); color: var(--color-gold); font-size: 1.4rem;">Desert Dreamers Camp</h3>
+      <p style="font-size: 0.85rem; max-width: 500px; margin: 8px auto 16px;">
+        Sam Sand Dunes, Near Sunset Point, Jaisalmer, Rajasthan 345001<br>
+        Direct Phone & WhatsApp: +91 98765 43210
+      </p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; font-size: 0.75rem;">
+        © 2026 Desert Dreamers Camp, Jaisalmer. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP CONCIERGE -->
+  <a href="https://wa.me/919876543210?text=Hello%20Desert%20Dreamers%20Camp!%20I%20have%20an%20enquiry%20regarding%20tent%20booking%20in%20Jaisalmer." class="floating-whatsapp" id="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-badge">Chat with Camp Reception</div>
+    <div class="floating-whatsapp-btn">
+      <svg viewBox="0 0 24 24"><path fill="#FFF" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.17 8.17 0 0 1-5.82 2.41c-1.47 0-2.92-.39-4.18-1.14l-.3-.18-3.11.82.83-3.03-.2-.31a8.19 8.19 0 0 1-1.26-4.39c0-4.54 3.7-8.24 8.22-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3"/></svg>
+    </div>
+  </a>
+
+  <!-- FIREBASE CONFIG (Optional Live Sync) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/camp-config.js"></script>
+
+  <!-- BOOKING CONTROLLER -->
+  <script>
+    (function() {
+      'use strict';
+
+      let selectedTentId = 'royal_ac_tent';
+
+      // Date inputs default: tomorrow check-in, day after tomorrow check-out
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+      const dayAfter = new Date(today);
+      dayAfter.setDate(today.getDate() + 2);
+
+      const toDateStr = d => d.toISOString().split('T')[0];
+
+      const checkinInput = document.getElementById('booking-checkin');
+      const checkoutInput = document.getElementById('booking-checkout');
+      const adultsSelect = document.getElementById('booking-adults');
+      const childrenSelect = document.getElementById('booking-children');
+
+      checkinInput.min = toDateStr(today);
+      checkinInput.value = toDateStr(tomorrow);
+      checkoutInput.min = toDateStr(tomorrow);
+      checkoutInput.value = toDateStr(dayAfter);
+
+      checkinInput.addEventListener('change', () => {
+        const d = new Date(checkinInput.value);
+        d.setDate(d.getDate() + 1);
+        checkoutInput.min = toDateStr(d);
+        if (new Date(checkoutInput.value) <= new Date(checkinInput.value)) {
+          checkoutInput.value = toDateStr(d);
+        }
+        recalculate();
+      });
+
+      checkoutInput.addEventListener('change', recalculate);
+      adultsSelect.addEventListener('change', recalculate);
+      childrenSelect.addEventListener('change', recalculate);
+
+      // Tent picker
+      const tentCards = document.querySelectorAll('.tent-picker-card');
+      tentCards.forEach(card => {
+        card.addEventListener('click', () => {
+          tentCards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectedTentId = card.getAttribute('data-tent-id');
+          recalculate();
+        });
+      });
+
+      // Activities checkboxes
+      const activityCards = document.querySelectorAll('.activity-checkbox-card');
+      activityCards.forEach(card => {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            card.classList.add('checked');
+          } else {
+            card.classList.remove('checked');
+          }
+          recalculate();
+        });
+      });
+
+      // Recalculate and update UI
+      function recalculate() {
+        const checkedActivities = [];
+        document.querySelectorAll('.activity-checkbox-card input[type="checkbox"]:checked').forEach(cb => {
+          checkedActivities.push(cb.value);
+        });
+
+        const quote = window.calculateCampQuote({
+          tentId: selectedTentId,
+          checkin: checkinInput.value,
+          checkout: checkoutInput.value,
+          adults: adultsSelect.value,
+          children: childrenSelect.value,
+          activities: checkedActivities
+        });
+
+        // Update Summary DOM
+        document.getElementById('summary-tent-title').textContent = quote.tent.name;
+        document.getElementById('summary-nights-val').textContent = `${quote.nights} Night${quote.nights > 1 ? 's' : ''}`;
+        document.getElementById('summary-guests-val').textContent = `${quote.adults} Adult${quote.adults > 1 ? 's' : ''}${quote.children > 0 ? `, ${quote.children} Child(ren)` : ''}`;
+        document.getElementById('summary-tent-cost').textContent = `₹${quote.stayCost.toLocaleString('en-IN')}`;
+
+        const extraRow = document.getElementById('summary-extra-guests-row');
+        const extraCost = quote.extraAdultCost + quote.extraChildCost;
+        if (extraCost > 0) {
+          extraRow.style.display = 'flex';
+          document.getElementById('summary-extra-guests-cost').textContent = `+₹${extraCost.toLocaleString('en-IN')}`;
+        } else {
+          extraRow.style.display = 'none';
+        }
+
+        const actRow = document.getElementById('summary-activities-row');
+        if (quote.activitiesTotal > 0) {
+          actRow.style.display = 'flex';
+          document.getElementById('summary-activities-cost').textContent = `+₹${quote.activitiesTotal.toLocaleString('en-IN')}`;
+        } else {
+          actRow.style.display = 'none';
+        }
+
+        document.getElementById('summary-grand-total').textContent = `₹${quote.grandTotal.toLocaleString('en-IN')}`;
+      }
+
+      // Update rates when camp config loads from Firestore
+      window.addEventListener('campConfigLoaded', (e) => {
+        const cfg = e.detail;
+        if (cfg.accommodations) {
+          if (cfg.accommodations.royal_ac_tent) {
+            document.getElementById('rate-display-royal_ac_tent').innerHTML = `₹${cfg.accommodations.royal_ac_tent.rate.toLocaleString('en-IN')} <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>`;
+          }
+          if (cfg.accommodations.luxury_swiss_tent) {
+            document.getElementById('rate-display-luxury_swiss_tent').innerHTML = `₹${cfg.accommodations.luxury_swiss_tent.rate.toLocaleString('en-IN')} <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>`;
+          }
+          if (cfg.accommodations.maharani_suite) {
+            document.getElementById('rate-display-maharani_suite').innerHTML = `₹${cfg.accommodations.maharani_suite.rate.toLocaleString('en-IN')} <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-secondary);">/ night (MAP Plan)</span>`;
+          }
+        }
+        if (cfg.activities) {
+          Object.keys(cfg.activities).forEach(k => {
+            const el = document.getElementById(`price-act-${k}`);
+            if (el) el.textContent = `+₹${cfg.activities[k].price.toLocaleString('en-IN')} / ${cfg.activities[k].unit}`;
+          });
+        }
+        if (cfg.phone) {
+          const callBtn = document.getElementById('btn-call-manager');
+          if (callBtn) callBtn.href = `tel:${cfg.phone.replace(/\s+/g, '')}`;
+        }
+        recalculate();
+      });
+
+      // WHATSAPP BUTTON CLICK
+      document.getElementById('btn-book-whatsapp').addEventListener('click', () => {
+        const guestName = document.getElementById('guest-name').value.trim();
+        const guestPhone = document.getElementById('guest-phone').value.trim();
+        const guestCity = document.getElementById('guest-city').value.trim();
+        const specialRequests = document.getElementById('guest-requests').value.trim();
+
+        const checkedActivities = [];
+        document.querySelectorAll('.activity-checkbox-card input[type="checkbox"]:checked').forEach(cb => {
+          checkedActivities.push(cb.value);
+        });
+
+        const waUrl = window.generateWhatsAppBookingLink({
+          tentId: selectedTentId,
+          checkin: checkinInput.value,
+          checkout: checkoutInput.value,
+          adults: adultsSelect.value,
+          children: childrenSelect.value,
+          guestName: guestName,
+          guestPhone: guestPhone,
+          guestCity: guestCity,
+          specialRequests: specialRequests,
+          activities: checkedActivities
+        });
+
+        window.open(waUrl, '_blank');
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      const overlay = document.getElementById('mobile-nav-overlay');
+      const closeBtn = document.getElementById('mobile-nav-close');
+
+      function toggleMobileMenu() {
+        mobileNav.classList.toggle('active');
+        overlay.classList.toggle('active');
+      }
+
+      if (hamburger) hamburger.addEventListener('click', toggleMobileMenu);
+      if (closeBtn) closeBtn.addEventListener('click', toggleMobileMenu);
+      if (overlay) overlay.addEventListener('click', toggleMobileMenu);
+
+      recalculate();
+    })();
+  </script>
+</body>
+</html>

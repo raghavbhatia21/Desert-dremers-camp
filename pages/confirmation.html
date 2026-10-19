@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thank you for booking your stay at Desert Dreamers Camp. Your reservation is confirmed.">
+  <title>Booking Confirmed | Desert Dreamers Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .confirm-container { max-width: 600px; margin: 0 auto; padding: var(--space-16) var(--space-4); text-align: center; }
+    .success-badge { width: 72px; height: 72px; background: rgba(13, 92, 78, 0.15); color: var(--color-emerald); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); margin: 0 auto var(--space-6); }
+    .details-box { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--space-6); border: var(--border-thin); margin-bottom: var(--space-8); text-align: left; }
+    .details-row { display: flex; justify-content: space-between; padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-sand); font-size: var(--fs-small); }
+    .details-row:last-child { border-bottom: none; font-weight: var(--fw-bold); font-size: var(--fs-body-lg); color: var(--color-maroon); }
+  </style>
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </nav>
+
+  <main>
+    <div class="confirm-container reveal">
+      <div class="success-badge">✓</div>
+      <h1 style="font-family: var(--font-display); font-size: var(--fs-h1); margin-bottom: var(--space-3);">Stay Reserved!</h1>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-8); line-height: var(--lh-relaxed);">
+        Thank you for booking with us. Your transaction is complete, and your reservation at Desert Dreamers Camp is fully secured. A confirmation email has been sent to your inbox.
+      </p>
+
+      <div class="details-box">
+        <h2 style="font-family: var(--font-display); font-size: var(--fs-h5); margin-bottom: var(--space-4); text-align: center; border-bottom: var(--border-thin); padding-bottom: var(--space-2);">Reservation Details</h2>
+        <div class="details-row">
+          <span>Booking ID:</span>
+          <strong id="confirm-id">-</strong>
+        </div>
+        <div class="details-row" id="confirm-room-row" style="display: none;">
+          <span>Accommodation:</span>
+          <strong id="confirm-room">-</strong>
+        </div>
+        <div class="details-row" id="confirm-dates-row" style="display: none;">
+          <span>Check-in / Check-out:</span>
+          <strong id="confirm-dates">-</strong>
+        </div>
+        <div class="details-row" id="confirm-amount-row" style="display: none;">
+          <span>Total Paid:</span>
+          <strong id="confirm-amount">-</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="../index.html" class="btn btn-outline">Return to Home</a>
+        <a href="#" class="btn btn-primary" id="view-status-btn">Manage Booking</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/animations.js"></script>
+  <script>
+  (function() {
+    const bookingId = Utils.getQueryParam('id');
+    const secureToken = Utils.getQueryParam('token');
+    
+    if (bookingId) {
+      document.getElementById('confirm-id').textContent = bookingId;
+      const statusBtn = document.getElementById('view-status-btn');
+      statusBtn.href = `booking-status.html?id=${bookingId}&token=${secureToken}`;
+    }
+
+    // Try fetching detail from Firestore
+    async function loadConfirmation() {
+      if (!db || !bookingId) return;
+      try {
+        const snap = await db.collection('bookings')
+          .where('bookingId', '==', bookingId)
+          .where('secureToken', '==', secureToken)
+          .get();
+        if (!snap.empty) {
+          const booking = snap.docs[0].data();
+          document.getElementById('confirm-room-row').style.display = 'flex';
+          document.getElementById('confirm-room').textContent = booking.roomName || 'Accommodation Stay';
+          
+          document.getElementById('confirm-dates-row').style.display = 'flex';
+          document.getElementById('confirm-dates').textContent = `${Utils.formatDate(booking.checkIn)} — ${Utils.formatDate(booking.checkOut)}`;
+          
+          document.getElementById('confirm-amount-row').style.display = 'flex';
+          document.getElementById('confirm-amount').textContent = Utils.formatPrice(booking.totalAmount);
+        }
+      } catch (err) {
+        console.error("Firestore confirmation details load failed:", err);
+      }
+    }
+    loadConfirmation();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently asked questions about Desert Dreamers Camp — booking, cancellation, amenities, check-in/out times, pet policy, and more. Find answers to plan your perfect stay.">
+  <title>FAQ — Desert Dreamers Camp | Booking, Amenities & Policies</title>
+  <link rel="canonical" href="https://desertdreamerscamp.com/pages/faq.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .faq-item { border-bottom: var(--border-thin); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: var(--space-6) 0; cursor: pointer; gap: var(--space-4); width: 100%; text-align: left; }
+    .faq-question h3 { font-family: var(--font-display); font-size: var(--fs-h5); font-weight: var(--fw-bold); transition: var(--transition-fast); flex: 1; }
+    .faq-question:hover h3 { color: var(--color-gold); }
+    .faq-icon { width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--color-gold); font-size: 1.5rem; transition: transform var(--duration-normal) var(--ease-out); }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--duration-slow) var(--ease-out), padding var(--duration-normal) var(--ease-out); }
+    .faq-answer-inner { padding: 0 0 var(--space-6) 0; color: var(--text-secondary); line-height: var(--lh-relaxed); font-size: var(--fs-body); }
+    .faq-item.active .faq-answer { max-height: 500px; }
+  </style>
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What are the check-in and check-out times?", "acceptedAnswer": {"@type": "Answer", "text": "Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in and late check-out are available on request, subject to availability."}},
+      {"@type": "Question", "name": "What types of accommodation do you offer?", "acceptedAnswer": {"@type": "Answer", "text": "We offer two types of luxury accommodation: Royal Safari Tents (glamping experience with en-suite bath, king bed, and private deck) and Heritage Stone Cottages (spacious cottages with living area, fireplace, and private garden)."}},
+      {"@type": "Question", "name": "Is the resort pet-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "We are currently not pet-friendly as our property is surrounded by natural wildlife habitats. We apologize for the inconvenience."}},
+      {"@type": "Question", "name": "What is your cancellation policy?", "acceptedAnswer": {"@type": "Answer", "text": "Free cancellation up to 48 hours before check-in. Cancellations within 48 hours are charged one night's stay. No-shows are charged the full booking amount."}},
+      {"@type": "Question", "name": "Is breakfast included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, a complimentary breakfast is included with every stay. We serve a lavish spread of local and continental options each morning."}},
+      {"@type": "Question", "name": "Do you have Wi-Fi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, complimentary Wi-Fi is available throughout the resort. However, as we are in a natural setting, connectivity may be limited in some areas — a perfect excuse to unplug and relax!"}},
+      {"@type": "Question", "name": "Is the resort good for families with children?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely! We welcome families with children. Our Heritage Stone Cottages are especially suited for families, and we offer activities like nature trails, cycling, and a kids' pool area."}},
+      {"@type": "Question", "name": "Can you arrange weddings or corporate events?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we host intimate weddings, destination celebrations, and corporate offsites. Our team can customize packages including venue setup, catering, and activities. Contact us for details."}}
+    ]
+  }
+  </script>
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><div class="header-cta"><a href="booking.html" class="btn btn-primary btn-sm">Book Now</a></div><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Your Stay</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding: var(--space-32) 0 var(--space-16); background: var(--bg-dark); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label reveal" style="color: var(--color-gold);">Got Questions?</p>
+        <h1 class="section-title reveal" style="color: var(--text-on-dark);">Frequently Asked Questions</h1>
+        <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+        <p class="section-subtitle reveal" style="color: var(--text-on-dark-muted); margin: 0 auto;">Everything you need to know about your stay at Desert Dreamers Camp.</p>
+      </div>
+    </section>
+    <nav aria-label="Breadcrumb" style="padding: var(--space-4) 0; border-bottom: var(--border-thin);"><div class="container"><p style="font-size: var(--fs-xs); color: var(--text-muted);"><a href="../index.html" style="color: var(--text-muted);">Home</a> <span style="margin: 0 var(--space-2);">→</span> <span style="color: var(--text-primary);">FAQ</span></p></div></nav>
+
+    <section class="section-padding-lg">
+      <div class="container" style="max-width: var(--container-md);">
+
+        <div class="faq-item reveal" id="faq-1">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1"><h3>What are the check-in and check-out times?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-1"><div class="faq-answer-inner">Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in and late check-out are available on request, subject to availability. Please contact us at least 24 hours in advance.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-2">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2"><h3>What types of accommodation do you offer?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-2"><div class="faq-answer-inner">We offer two types of luxury accommodation: <strong>Royal Safari Tents</strong> — a premium glamping experience with en-suite bathroom, king-size bed, private deck, and mountain views. <strong>Heritage Stone Cottages</strong> — spacious traditional cottages with living area, fireplace, private garden, and hot shower. Both include complimentary breakfast, Wi-Fi, and access to all resort amenities.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-3">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3"><h3>Is the resort pet-friendly?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-3"><div class="faq-answer-inner">We are currently not pet-friendly as our property is surrounded by natural wildlife habitats. We prioritize the safety of local wildlife and your pets. We apologize for the inconvenience and hope to accommodate pets in the future.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-4">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4"><h3>What is your cancellation policy?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-4"><div class="faq-answer-inner">Free cancellation up to 48 hours before check-in for a full refund. Cancellations within 48 hours of check-in are charged one night's stay. No-shows are charged the full booking amount. Modifications to booking dates can be made free of charge, subject to availability.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-5">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5"><h3>Is breakfast included?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-5"><div class="faq-answer-inner">Yes! A complimentary breakfast is included with every stay. We serve a lavish spread of local delicacies, continental options, fresh fruits, juices, and artisanal breads from 7:00 AM to 10:00 AM daily.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-6">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6"><h3>Do you have Wi-Fi?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-6"><div class="faq-answer-inner">Yes, complimentary Wi-Fi is available in all accommodations and common areas. However, as we are nestled in a natural setting, connectivity may be limited in some outdoor areas — a perfect excuse to unplug and enjoy the surroundings!</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-7">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7"><h3>Is the resort good for families with children?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-7"><div class="faq-answer-inner">Absolutely! We welcome families with children of all ages. Our Heritage Stone Cottages are especially suited for families with their spacious living areas. We offer kid-friendly activities like nature trails, cycling, a kids' wading pool, archery, and bonfire evenings.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-8">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8"><h3>Can you arrange weddings or corporate events?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-8"><div class="faq-answer-inner">Yes, we specialize in intimate weddings, destination celebrations, and corporate offsites. Our team can customize packages including venue setup, catering, activities, and accommodation for your guests. <a href="contact.html" style="color: var(--color-gold);">Contact us</a> to discuss your requirements.</div></div>
+        </div>
+        <div class="faq-item reveal" id="faq-9">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9"><h3>How do I get to the resort? Do you offer airport/station pickup?</h3><span class="faq-icon">+</span></button>
+          <div class="faq-answer" id="faq-answer-9"><div class="faq-answer-inner">Detailed directions are available on our <a href="contact.html" style="color: var(--color-gold);">Contact page</a>. We offer paid airport/railway station pickup and drop services. Please request this at the time of booking or contact us at least 24 hours before your arrival.</div></div>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-12);" class="reveal">
+          <p style="font-family: var(--font-display); font-size: var(--fs-h4); margin-bottom: var(--space-4);">Still have questions?</p>
+          <p style="color: var(--text-secondary); margin-bottom: var(--space-6);">We're happy to help. Reach out to us anytime.</p>
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+
+  <script src="../js/app.js"></script><script src="../js/animations.js"></script>
+  <script>
+  /* FAQ Accordion */
+  (function() {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const wasActive = item.classList.contains('active');
+        // Close all
+        document.querySelectorAll('.faq-item.active').forEach(el => {
+          el.classList.remove('active');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle clicked
+        if (!wasActive) {
+          item.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View, modify, or cancel your booking at Desert Dreamers Camp using your Booking ID and secure access token.">
+  <title>Manage Your Booking | Desert Dreamers Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .status-container { max-width: 600px; margin: 0 auto; padding: var(--space-16) var(--space-4); }
+    .status-card { background: var(--bg-card); border-radius: var(--radius-lg); border: var(--border-thin); padding: var(--space-8); box-shadow: var(--shadow-md); }
+    .status-row { display: flex; justify-content: space-between; padding: var(--space-3) 0; border-bottom: 1px dashed var(--color-sand); font-size: var(--fs-small); }
+    .status-row:last-child { border-bottom: none; font-weight: var(--fw-bold); font-size: var(--fs-body-lg); margin-top: var(--space-4); padding-top: var(--space-4); border-top: var(--border-thin); }
+  </style>
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </nav>
+
+  <main>
+    <section style="padding: var(--space-24) 0 var(--space-10); background: var(--bg-dark); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label" style="color: var(--color-gold);">Guest Portal</p>
+        <h1 class="section-title" style="color: var(--text-on-dark);">Manage Reservation</h1>
+        <div class="ornament"><span class="ornament-icon">✦</span></div>
+      </div>
+    </section>
+
+    <div class="status-container">
+      <!-- Search Form Box -->
+      <div class="status-card reveal" id="lookup-panel">
+        <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-6); text-align: center;">Look Up Your Stay</h2>
+        <form id="lookup-form">
+          <div class="form-group">
+            <label class="form-label" for="lookup-booking-id">Booking ID *</label>
+            <input type="text" class="form-input" id="lookup-booking-id" required placeholder="e.g. RR-123456" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lookup-email">Email Address *</label>
+            <input type="email" class="form-input" id="lookup-email" required placeholder="Email used for booking" autocomplete="email">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-4);">Find Booking</button>
+        </form>
+      </div>
+
+      <!-- Details View Panel -->
+      <div class="status-card reveal" id="details-panel" style="display: none;">
+        <h2 style="font-family: var(--font-display); font-size: var(--fs-h3); margin-bottom: var(--space-6); text-align: center;">Your Reservation Details</h2>
+        
+        <div style="margin-bottom: var(--space-6);">
+          <div class="status-row">
+            <span>Booking ID:</span>
+            <strong id="detail-id">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Status:</span>
+            <span class="badge" id="detail-status">-</span>
+          </div>
+          <div class="status-row">
+            <span>Accommodation:</span>
+            <strong id="detail-room">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Check-in Date:</span>
+            <strong id="detail-checkin">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Check-out Date:</span>
+            <strong id="detail-checkout">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Guests:</span>
+            <strong id="detail-guests">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Guest Name:</span>
+            <strong id="detail-name">-</strong>
+          </div>
+          <div class="status-row">
+            <span>Total Paid:</span>
+            <strong id="detail-price">-</strong>
+          </div>
+        </div>
+
+        <div id="cancellation-block" style="display: none; border-top: var(--border-thin); padding-top: var(--space-6); text-align: center;">
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: var(--space-4);">
+            * Free cancellations are available up to 48 hours prior to check-in.
+          </p>
+          <button class="btn btn-secondary" id="cancel-stay-btn" style="width: 100%;">Cancel Reservation</button>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-6);">
+          <button class="btn btn-ghost btn-sm" id="back-to-lookup">Back to Search</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-check-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/animations.js"></script>
+  <script>
+  (function() {
+    const lookupPanel = document.getElementById('lookup-panel');
+    const detailsPanel = document.getElementById('details-panel');
+    let loadedBookingDocId = null;
+
+    // View updates
+    function showDetails(booking) {
+      document.getElementById('detail-id').textContent = booking.bookingId;
+      document.getElementById('detail-room').textContent = booking.roomName || 'Stay Accommodation';
+      document.getElementById('detail-checkin').textContent = Utils.formatDate(booking.checkIn);
+      document.getElementById('detail-checkout').textContent = Utils.formatDate(booking.checkOut);
+      document.getElementById('detail-guests').textContent = `${booking.guests} Guest${booking.guests > 1 ? 's' : ''}`;
+      document.getElementById('detail-name').textContent = booking.guestName;
+      document.getElementById('detail-price').textContent = Utils.formatPrice(booking.totalAmount);
+
+      const statusBadge = document.getElementById('detail-status');
+      statusBadge.textContent = booking.status;
+      statusBadge.className = 'badge';
+      if (booking.status === 'confirmed') {
+        statusBadge.classList.add('badge-emerald');
+      } else if (booking.status === 'cancelled') {
+        statusBadge.classList.add('badge-maroon');
+      } else {
+        statusBadge.classList.add('badge-gold');
+      }
+
+      // Check cancellation window (48 hours before check-in)
+      const cancelBlock = document.getElementById('cancellation-block');
+      if (booking.status === 'confirmed') {
+        const checkinDate = new Date(booking.checkIn);
+        const limitDate = new Date(checkinDate);
+        limitDate.setHours(limitDate.getHours() - 48);
+        const now = new Date();
+        
+        if (now < limitDate) {
+          cancelBlock.style.display = 'block';
+        } else {
+          cancelBlock.style.display = 'none';
+        }
+      } else {
+        cancelBlock.style.display = 'none';
+      }
+
+      lookupPanel.style.display = 'none';
+      detailsPanel.style.display = 'block';
+    }
+
+    // Direct url check via token
+    async function initLookup() {
+      const urlId = Utils.getQueryParam('id');
+      const urlToken = Utils.getQueryParam('token');
+
+      if (urlId && urlToken && db) {
+        try {
+          const snap = await db.collection('bookings')
+            .where('bookingId', '==', urlId)
+            .where('secureToken', '==', urlToken)
+            .get();
+          if (!snap.empty) {
+            loadedBookingDocId = snap.docs[0].id;
+            showDetails(snap.docs[0].data());
+          } else {
+            Utils.showToast("Secure booking token is invalid or expired.", "error");
+          }
+        } catch (err) {
+          console.error("Direct secure lookup query failed:", err);
+        }
+      }
+    }
+
+    // Lookup form submit
+    const form = document.getElementById('lookup-form');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('lookup-booking-id').value.trim();
+        const email = document.getElementById('lookup-email').value.trim();
+
+        if (!db) {
+          // If Firestore is not running, show dummy booking for preview/test
+          if (id.startsWith('RR-')) {
+            showDetails({
+              bookingId: id,
+              roomName: 'Royal Safari Tent',
+              checkIn: new Date(Date.now() + 86400000 * 3).toISOString().split('T')[0],
+              checkOut: new Date(Date.now() + 86400000 * 5).toISOString().split('T')[0],
+              guests: 2,
+              guestName: 'Guest Preview',
+              totalAmount: 17000,
+              status: 'confirmed'
+            });
+          } else {
+            Utils.showToast("Invalid Booking ID pattern. Try starting with 'RR-'", "error");
+          }
+          return;
+        }
+
+        try {
+          const snap = await db.collection('bookings')
+            .where('bookingId', '==', id)
+            .where('guestEmail', '==', email)
+            .get();
+          if (!snap.empty) {
+            loadedBookingDocId = snap.docs[0].id;
+            showDetails(snap.docs[0].data());
+          } else {
+            Utils.showToast("No active booking found matching credentials.", "error");
+          }
+        } catch (err) {
+          console.error("Lookup query failed:", err);
+          Utils.showToast("Failed to search reservation. Retry.", "error");
+        }
+      });
+    }
+
+    // Back to search
+    const backBtn = document.getElementById('back-to-lookup');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        detailsPanel.style.display = 'none';
+        lookupPanel.style.display = 'block';
+      });
+    }
+
+    // Cancel stay handler
+    const cancelBtn = document.getElementById('cancel-stay-btn');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', async () => {
+        if (!confirm("Are you sure you want to cancel this reservation? This cannot be undone.")) return;
+        
+        const origText = cancelBtn.textContent;
+        cancelBtn.disabled = true;
+        cancelBtn.textContent = 'Processing Cancellation...';
+
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        // Local simulation / fallback write (if allowed by rules or testing)
+        if (isLocalhost || !db) {
+          setTimeout(async () => {
+            if (db && loadedBookingDocId) {
+              try {
+                await db.collection('bookings').doc(loadedBookingDocId).update({
+                  status: 'cancelled'
+                });
+              } catch (err) {
+                console.error("Local cancel save failed:", err);
+              }
+            }
+            
+            // Reload details locally
+            document.getElementById('detail-status').textContent = 'cancelled';
+            document.getElementById('detail-status').className = 'badge badge-maroon';
+            document.getElementById('cancellation-block').style.display = 'none';
+            cancelBtn.disabled = false;
+            cancelBtn.textContent = origText;
+            Utils.showToast("Reservation cancelled successfully.", "success");
+          }, 1000);
+          return;
+        }
+
+        // Production calls Cloud Function API (Secure)
+        try {
+          const response = await fetch('/api/cancel-booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              bookingDocId: loadedBookingDocId,
+              secureToken: Utils.getQueryParam('token')
+            })
+          });
+          const res = await response.json();
+          if (res.success) {
+            window.location.reload();
+          } else {
+            Utils.showToast(res.message || "Cancellation request failed.", "error");
+            cancelBtn.disabled = false;
+            cancelBtn.textContent = origText;
+          }
+        } catch (err) {
+          console.error("API cancel call failed:", err);
+          Utils.showToast("Server cancellation endpoint error.", "error");
+          cancelBtn.disabled = false;
+          cancelBtn.textContent = origText;
+        }
+      });
+    }
+
+    initLookup();
+  })();
+  </script>
+</body>
+</html>

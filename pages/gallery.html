@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse our photo gallery — luxury tents, heritage cottages, infinity pool, spa, dining, and stunning landscapes at Desert Dreamers Camp.">
+  <title>Photo Gallery — Desert Dreamers Camp</title>
+  <link rel="canonical" href="https://desertdreamerscamp.com/pages/gallery.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .gallery-full-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+    .gallery-full-item { overflow: hidden; border-radius: var(--radius-md); cursor: pointer; aspect-ratio: 4 / 3; }
+    .gallery-full-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-out); }
+    .gallery-full-item:hover img { transform: scale(1.06); }
+    .gallery-full-item.tall { grid-row: span 2; aspect-ratio: auto; }
+    .gallery-full-item.wide { grid-column: span 2; }
+    /* Lightbox */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1100; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition-base); }
+    .lightbox.active { opacity: 1; visibility: visible; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: var(--radius-md); }
+    .lightbox-close { position: absolute; top: var(--space-6); right: var(--space-6); color: white; font-size: 2rem; cursor: pointer; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); transition: var(--transition-fast); }
+    .lightbox-close:hover { background: rgba(255,255,255,0.1); }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2rem; cursor: pointer; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); transition: var(--transition-fast); }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.1); }
+    .lightbox-prev { left: var(--space-6); }
+    .lightbox-next { right: var(--space-6); }
+    .lightbox-caption { position: absolute; bottom: var(--space-6); left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: var(--fs-small); text-align: center; }
+    @media (max-width: 768px) {
+      .gallery-full-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-full-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+      .gallery-full-item.wide { grid-column: span 1; }
+    }
+    @media (max-width: 480px) { .gallery-full-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link active">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><div class="header-cta"><a href="booking.html" class="btn btn-primary btn-sm">Book Now</a></div><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link active">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Your Stay</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding: var(--space-32) 0 var(--space-16); background: var(--bg-dark); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label reveal" style="color: var(--color-gold);">Visual Journey</p>
+        <h1 class="section-title reveal" style="color: var(--text-on-dark);">Photo Gallery</h1>
+        <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+        <p class="section-subtitle reveal" style="color: var(--text-on-dark-muted); margin: 0 auto;">Experience the beauty of Desert Dreamers Camp through our lens.</p>
+      </div>
+    </section>
+    <nav aria-label="Breadcrumb" style="padding: var(--space-4) 0; border-bottom: var(--border-thin);"><div class="container"><p style="font-size: var(--fs-xs); color: var(--text-muted);"><a href="../index.html" style="color: var(--text-muted);">Home</a> <span style="margin: 0 var(--space-2);">→</span> <span style="color: var(--text-primary);">Gallery</span></p></div></nav>
+
+    <section class="section-padding-lg">
+      <div class="container">
+        <div class="gallery-full-grid reveal">
+          <div class="gallery-full-item tall" data-caption="Aerial view of Desert Dreamers Camp"><img src="../assets/images/hero.png" alt="Panoramic aerial view of the resort" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Royal Safari Tent"><img src="../assets/images/tent.png" alt="Luxury glamping tent with heritage decor" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Infinity Pool"><img src="../assets/images/pool.png" alt="Crystal clear infinity pool" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Heritage Stone Cottage"><img src="../assets/images/cottage.png" alt="Charming heritage stone cottage" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Fine Dining Experience"><img src="../assets/images/dining.png" alt="Candlelit outdoor dining" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Spa & Wellness"><img src="../assets/images/spa.png" alt="Relaxing spa treatment" loading="lazy"></div>
+          <div class="gallery-full-item wide" data-caption="Resort Grounds"><img src="../assets/images/hero.png" alt="Beautiful resort grounds at sunset" loading="lazy"></div>
+          <div class="gallery-full-item" data-caption="Poolside Lounge"><img src="../assets/images/pool.png" alt="Poolside lounge area" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">❮</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">❯</button>
+    <img src="" alt="" id="lightbox-img">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/animations.js"></script>
+  <script>
+  /* Lightbox logic */
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCaption = document.getElementById('lightbox-caption');
+    const items = [...document.querySelectorAll('.gallery-full-item')];
+    let current = 0;
+
+    function open(index) {
+      current = index;
+      const item = items[current];
+      const img = item.querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = item.dataset.caption || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      current = (current + dir + items.length) % items.length;
+      open(current);
+    }
+
+    items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+    document.getElementById('lightbox-close').addEventListener('click', close);
+    document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  })();
+  </script>
+</body>
+</html>

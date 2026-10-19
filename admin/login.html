@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Login — Desert Dreamers Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="css/admin.css">
+  <style>
+    .login-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: var(--space-4); background: var(--color-cream); }
+    .login-card { background: var(--color-white); border-radius: var(--radius-lg); border: var(--border-thin); padding: var(--space-8); max-width: 400px; width: 100%; box-shadow: var(--shadow-lg); }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div style="text-align: center; margin-bottom: var(--space-6);">
+        <h1 style="font-family: var(--font-display); font-size: var(--fs-h3); color: var(--color-terracotta); margin-bottom: var(--space-2);">Desert Dreamers</h1>
+        <p style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--ls-wider); color: var(--color-gold); font-weight: var(--fw-semibold);">Camp Admin Console</p>
+      </div>
+
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" class="form-input" id="login-email" required autocomplete="email" placeholder="admin@royalresort.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <input type="password" class="form-input" id="login-password" required autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: var(--space-4);" id="login-btn">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="js/admin-auth.js"></script>
+</body>
+</html>

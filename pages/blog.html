@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Journal — stories, travel guides, and behind-the-scenes from Desert Dreamers Camp. Discover local gems, seasonal highlights, and guest experiences.">
+  <title>The Journal — Stories & Guides | Desert Dreamers Camp Blog</title>
+  <link rel="canonical" href="https://desertdreamerscamp.com/pages/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link active">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><div class="header-cta"><a href="booking.html" class="btn btn-primary btn-sm">Book Now</a></div><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link active">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Your Stay</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding: var(--space-32) 0 var(--space-16); background: var(--bg-dark); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label reveal" style="color: var(--color-gold);">Stories & Guides</p>
+        <h1 class="section-title reveal" style="color: var(--text-on-dark);">The Journal</h1>
+        <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+        <p class="section-subtitle reveal" style="color: var(--text-on-dark-muted); margin: 0 auto;">Travel inspiration, guest stories, local guides, and behind-the-scenes from Desert Dreamers Camp.</p>
+      </div>
+    </section>
+    <nav aria-label="Breadcrumb" style="padding: var(--space-4) 0; border-bottom: var(--border-thin);"><div class="container"><p style="font-size: var(--fs-xs); color: var(--text-muted);"><a href="../index.html" style="color: var(--text-muted);">Home</a> <span style="margin: 0 var(--space-2);">→</span> <span style="color: var(--text-primary);">The Journal</span></p></div></nav>
+
+    <section class="section-padding-lg">
+      <div class="container">
+        <!-- Blog posts will be loaded from Firestore. These are placeholder static posts. -->
+        <div class="grid grid-3 reveal-stagger" id="blog-grid" style="gap: var(--space-8);">
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/hero.png" alt="Things to do near the resort" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Local Guide</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">10 Things to Do Near Desert Dreamers Camp</h2>
+              <p class="card-text">Discover hidden waterfalls, local markets, ancient temples, and scenic viewpoints within an hour's drive of the resort.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">June 28, 2026</span>
+                <a href="blog-post.html?slug=things-to-do" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/spa.png" alt="Ayurvedic spa treatments" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Wellness</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">The Ancient Art of Ayurvedic Healing at Our Spa</h2>
+              <p class="card-text">Learn about the traditional healing practices our spa therapists use and how they can transform your well-being.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">June 15, 2026</span>
+                <a href="blog-post.html?slug=ayurvedic-healing" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/dining.png" alt="Farm to table dining" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Dining</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">Farm to Table: Our Kitchen Garden Story</h2>
+              <p class="card-text">Meet the hands behind our organic kitchen garden and see how fresh produce makes it from soil to your plate.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">June 2, 2026</span>
+                <a href="blog-post.html?slug=farm-to-table" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/tent.png" alt="Glamping experience" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Experience</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">Why Glamping is the New Luxury Travel Trend</h2>
+              <p class="card-text">Explore why discerning travelers are trading hotel suites for luxury tents — and why it's the ultimate nature experience.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">May 20, 2026</span>
+                <a href="blog-post.html?slug=glamping-trend" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/cottage.png" alt="Heritage cottage" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Heritage</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">The Story Behind Our Heritage Stone Cottages</h2>
+              <p class="card-text">Each cottage was built by local artisans using traditional techniques passed down through generations.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">May 5, 2026</span>
+                <a href="blog-post.html?slug=heritage-cottages" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal img-zoom">
+            <img src="../assets/images/pool.png" alt="Monsoon season" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-label">Seasonal</span>
+              <h2 class="card-title" style="font-size: var(--fs-h5);">Monsoon Magic: Why Rainy Season is the Best Time to Visit</h2>
+              <p class="card-text">Lush green hills, misty mornings, and fewer crowds — discover the charm of a monsoon retreat.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                <span style="font-size: var(--fs-xs); color: var(--text-muted);">April 18, 2026</span>
+                <a href="blog-post.html?slug=monsoon-magic" class="btn btn-ghost btn-sm" style="padding: 0;">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+  <script src="../js/app.js"></script><script src="../js/animations.js"></script>
+</body>
+</html>

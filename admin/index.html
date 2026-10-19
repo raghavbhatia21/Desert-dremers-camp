@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard — Royal Heritage Resort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="css/admin.css?v=1.2">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" role="navigation" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <h2 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--color-gold); margin: 0;">Desert Dreamers</h2>
+        <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.8;">Camp Admin Portal</span>
+      </div>
+      <div class="sidebar-menu">
+        <button class="sidebar-item active" data-view="overview">📊 Overview</button>
+        <button class="sidebar-item" data-view="camp-rates">🐪 Camp Rates & WhatsApp</button>
+        <button class="sidebar-item" data-view="bookings">📅 Bookings</button>
+        <button class="sidebar-item" data-view="accommodations">🏡 Stay Categories</button>
+        <button class="sidebar-item" data-view="availability">📆 Calendar Control</button>
+        <button class="sidebar-item" data-view="offers">🏷️ Special Offers</button>
+        <button class="sidebar-item" data-view="blog">✍️ The Journal</button>
+        <button class="sidebar-item" data-view="seo">🚀 SEO Pages</button>
+        <button class="sidebar-item" data-view="enquiries">✉️ Enquiry Inbox</button>
+        <button class="sidebar-item" data-view="audit">🔒 Security Audit</button>
+      </div>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline-light btn-sm" id="logout-btn" style="width: 100%;">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="admin-main">
+      <header class="admin-top-bar">
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <button class="hamburger admin-hamburger" id="admin-hamburger" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div style="font-weight: var(--fw-semibold); font-size: var(--fs-body-lg);" id="current-view-title">Overview</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-4); font-size: var(--fs-small);">
+          <span style="color: var(--text-muted);" id="user-email-display">admin@desertdreamerscamp.com</span>
+          <span class="badge badge-emerald">Camp Admin</span>
+        </div>
+      </header>
+
+      <div class="admin-content">
+
+        <!-- 1. OVERVIEW SECTION -->
+        <section class="admin-view active" id="view-overview">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-label">Total Bookings</div>
+              <div class="stat-val" id="stat-bookings">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Confirmed Revenue</div>
+              <div class="stat-val" id="stat-revenue">₹0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Unread Enquiries</div>
+              <div class="stat-val" id="stat-enquiries">0</div>
+            </div>
+          </div>
+          <div class="editor-panel">
+            <h3 style="font-family: var(--font-display); margin-bottom: var(--space-4);">Desert Dreamers Camp Management</h3>
+            <p style="color: var(--text-secondary); font-size: var(--fs-small); margin-bottom: var(--space-4);">
+              Use the sidebar to manage per-night tent pricing, desert safari packages, WhatsApp booking numbers, and website offers. All updates sync instantly to the live public site without rebuilding Netlify.
+            </p>
+            <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-view=camp-rates]').click();">Manage Camp Rates & WhatsApp</button>
+              <button class="btn btn-outline btn-sm" onclick="window.open('../index.html', '_blank');">View Live Website ↗</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. CAMP RATES & WHATSAPP MANAGER -->
+        <section class="admin-view" id="view-camp-rates" style="display: none;">
+          <div class="editor-panel" style="margin-bottom: var(--space-6);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+              <div>
+                <h3 style="font-family: var(--font-display); margin: 0;">Camp Rates & WhatsApp Settings</h3>
+                <p style="font-size: var(--fs-small); color: var(--text-muted); margin: 4px 0 0;">
+                  Set per-night stay rates, desert safari add-on prices, and reservation WhatsApp numbers. Updates apply to live booking quotes immediately.
+                </p>
+              </div>
+              <button type="button" class="btn btn-secondary" id="save-camp-rates-top-btn">💾 Save All Changes</button>
+            </div>
+
+            <form id="camp-rates-form">
+              <!-- A. WhatsApp & Contact Info -->
+              <h4 style="font-size: 1rem; color: var(--color-terracotta); border-bottom: 1px solid var(--color-sand); padding-bottom: 8px; margin: var(--space-6) 0 var(--space-4);">
+                1. WhatsApp Reservation & Reception Details
+              </h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="admin-camp-whatsapp">Reservation WhatsApp Phone Number *</label>
+                  <input type="text" class="form-input" id="admin-camp-whatsapp" placeholder="e.g. 919876543210 (include country code, no + or spaces)" required>
+                  <small style="color: var(--text-muted); font-size: 0.72rem;">Guests clicking "Book on WhatsApp" will send their itinerary to this number.</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="admin-camp-phone">Public Reception Phone</label>
+                  <input type="text" class="form-input" id="admin-camp-phone" placeholder="e.g. +91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="admin-camp-email">Reservation Email Address</label>
+                  <input type="email" class="form-input" id="admin-camp-email" placeholder="e.g. reservations@desertdreamerscamp.com" required>
+                </div>
+              </div>
+
+              <!-- B. Accommodation Per-Night Rates -->
+              <h4 style="font-size: 1rem; color: var(--color-terracotta); border-bottom: 1px solid var(--color-sand); padding-bottom: 8px; margin: var(--space-6) 0 var(--space-4);">
+                2. Accommodation Base Rates (per night, MAP Plan with Breakfast & Buffet Dinner)
+              </h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="rate-royal-ac">Royal AC Swiss Tent (₹) *</label>
+                  <input type="number" class="form-input" id="rate-royal-ac" min="1000" step="100" required>
+                  <small style="color: var(--text-muted); font-size: 0.72rem;">Base rate for 2 guests.</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="rate-luxury-swiss">Luxury Heritage Swiss Tent (₹) *</label>
+                  <input type="number" class="form-input" id="rate-luxury-swiss" min="1000" step="100" required>
+                  <small style="color: var(--text-muted); font-size: 0.72rem;">Base rate for 2 guests.</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="rate-maharani-suite">Maharani Sunset Dune Suite (₹) *</label>
+                  <input type="number" class="form-input" id="rate-maharani-suite" min="1000" step="100" required>
+                  <small style="color: var(--text-muted); font-size: 0.72rem;">VIP suite for up to 2-4 guests.</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="rate-extra-adult">Extra Adult Bed (₹ / night)</label>
+                  <input type="number" class="form-input" id="rate-extra-adult" min="0" step="100" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="rate-extra-child">Extra Child Rate 6-12 yrs (₹ / night)</label>
+                  <input type="number" class="form-input" id="rate-extra-child" min="0" step="100" required>
+                </div>
+              </div>
+
+              <!-- C. Desert Safaris & Adventure Activities -->
+              <h4 style="font-size: 1rem; color: var(--color-terracotta); border-bottom: 1px solid var(--color-sand); padding-bottom: 8px; margin: var(--space-6) 0 var(--space-4);">
+                3. Desert Safaris & Activities Pricing (Add-ons)
+              </h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+                <div class="form-group">
+                  <label class="form-label" for="act-rate-camel">Sunset Camel Safari (₹ / person)</label>
+                  <input type="number" class="form-input" id="act-rate-camel" min="0" step="50" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="act-rate-jeep">4x4 Jeep Dune Bashing (₹ / jeep)</label>
+                  <input type="number" class="form-input" id="act-rate-jeep" min="0" step="100" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="act-rate-quad">Quad Biking / ATV 20 Mins (₹ / person)</label>
+                  <input type="number" class="form-input" id="act-rate-quad" min="0" step="50" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="act-rate-parasailing">Desert Parasailing (₹ / person)</label>
+                  <input type="number" class="form-input" id="act-rate-parasailing" min="0" step="50" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="act-rate-dinner">Candlelight Sand Dune Dinner (₹ / couple)</label>
+                  <input type="number" class="form-input" id="act-rate-dinner" min="0" step="100" required>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-sand);">
+                <span id="camp-rates-status" style="align-self: center; font-size: 0.85rem; font-weight: 500; color: var(--color-emerald);"></span>
+                <button type="submit" class="btn btn-secondary btn-lg" id="save-camp-rates-btn">💾 Save Rates & WhatsApp Settings</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 2. BOOKINGS SECTION -->
+        <section class="admin-view" id="view-bookings" style="display: none;">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Guest Name</th>
+                  <th>Stay Type</th>
+                  <th>Dates</th>
+                  <th>Paid Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookings-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 3. ACCOMMODATIONS CRUD -->
+        <section class="admin-view" id="view-accommodations" style="display: none;">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Category ID</th>
+                  <th>Name</th>
+                  <th>Base Price</th>
+                  <th>Max Guests</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="accommodations-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. CALENDAR CONTROL -->
+        <section class="admin-view" id="view-availability" style="display: none;">
+          <div class="calendar-control-layout">
+            
+            <!-- Left Panel: Block / Unblock form -->
+            <div class="calendar-sidebar-panel editor-panel">
+              <h3 style="font-family: var(--font-display); margin-bottom: var(--space-6);">Block / Unblock Dates</h3>
+              <form id="availability-block-form">
+                <div class="form-group" style="margin-bottom: var(--space-4);">
+                  <label class="form-label" for="block-acc-type">Accommodation</label>
+                  <select class="form-select" id="block-acc-type" style="width: 100%;">
+                    <option value="tent">Royal Safari Tent</option>
+                    <option value="cottage">Heritage Stone Cottage</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom: var(--space-6);">
+                  <label class="form-label" for="block-date">Date to Block</label>
+                  <input type="date" class="form-input" id="block-date" style="width: 100%;" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Block Actions</label>
+                  <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                    <button type="button" class="btn btn-secondary" id="action-block-btn" style="width: 100%;">Block Category Date</button>
+                    <button type="button" class="btn btn-outline" id="action-unblock-btn" style="width: 100%;">Release Block</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right Panel: Full Interactive Calendar -->
+            <div class="calendar-main-panel" id="calendar-view-container">
+              <div class="calendar-header">
+                <button type="button" class="calendar-nav-btn" id="calendar-prev-btn">◀ Prev</button>
+                <h3 class="calendar-month-title" id="calendar-month-year">July 2026</h3>
+                <button type="button" class="calendar-nav-btn" id="calendar-next-btn">Next ▶</button>
+              </div>
+              <div class="calendar-weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+              <div class="calendar-grid" id="calendar-grid-body">
+                <!-- Dynamically drawn grid cells -->
+              </div>
+              <div class="calendar-day-details" id="calendar-day-details"></div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 5. OFFERS MANAGER -->
+        <section class="admin-view" id="view-offers" style="display: none;">
+          <!-- Collapsible Offer Editor Panel -->
+          <div class="editor-panel" id="offer-editor-panel" style="display: none; margin-bottom: var(--space-6);">
+            <h3 style="font-family: var(--font-display); margin-bottom: var(--space-4);" id="offer-editor-title">Add Special Offer</h3>
+            <form id="offer-editor-form">
+              <input type="hidden" id="offer-id">
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="offer-title">Offer Title</label>
+                  <input type="text" class="form-input" id="offer-title" placeholder="e.g. Wellness Retreat" style="width: 100%;" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="offer-type">Offer Type (Category)</label>
+                  <input type="text" class="form-input" id="offer-type" placeholder="e.g. Wellness / Honeymoon / Weekend" style="width: 100%;" required>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="offer-discount">Discount Badge</label>
+                  <input type="text" class="form-input" id="offer-discount" placeholder="e.g. 25% OFF / Complimentary" style="width: 100%;" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="offer-code">Promo Code / Reference</label>
+                  <input type="text" class="form-input" id="offer-code" placeholder="e.g. WELLNESS25" style="width: 100%;">
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom: var(--space-4);">
+                <label class="form-label" for="offer-desc">Description</label>
+                <textarea class="form-textarea" id="offer-desc" rows="3" placeholder="Brief summary of the offer package..." style="width: 100%; font-family: inherit; padding: var(--space-3); border: var(--border-thin); border-radius: var(--radius-md);" required></textarea>
+              </div>
+              <div class="form-group" style="margin-bottom: var(--space-4);">
+                <label class="form-label" for="offer-features">Package Features / Bullets (Comma-separated)</label>
+                <input type="text" class="form-input" id="offer-features" placeholder="e.g. 4 nights stay, Daily spa treatments, Morning yoga" style="width: 100%;" required>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-6);">
+                <input type="checkbox" id="offer-active" checked>
+                <label for="offer-active" style="font-size: var(--fs-small); color: var(--text-primary); cursor: pointer; user-select: none;">Active & Published</label>
+              </div>
+              <div style="display: flex; gap: var(--space-3);">
+                <button type="submit" class="btn btn-secondary" id="offer-save-btn">Save Offer</button>
+                <button type="button" class="btn btn-outline" id="offer-cancel-btn">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-bottom: var(--space-4);">
+            <button type="button" class="btn btn-secondary" id="add-offer-btn">+ Add New Offer</button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Offer Title</th>
+                  <th>Type</th>
+                  <th>Discount</th>
+                  <th>Details</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="offers-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 6. THE JOURNAL (BLOG) EDITOR -->
+        <section class="admin-view" id="view-blog" style="display: none;">
+          <div class="editor-panel">
+            <h3 style="font-family: var(--font-display); margin-bottom: var(--space-6);">Write a New Entry</h3>
+            <form id="admin-blog-form">
+              <div class="form-group">
+                <label class="form-label" for="blog-title">Post Title</label>
+                <input type="text" class="form-input" id="blog-title" required placeholder="e.g. 5 local spots to visit">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="blog-category">Category</label>
+                  <input type="text" class="form-input" id="blog-category" required placeholder="e.g. Local Guide">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="blog-author">Author Name</label>
+                  <input type="text" class="form-input" id="blog-author" required placeholder="Author Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="blog-body">Article Body</label>
+                <textarea class="form-textarea" id="blog-body" required placeholder="Start writing article..." style="min-height: 240px;"></textarea>
+              </div>
+              <button type="submit" class="btn btn-secondary" id="blog-submit-btn">Publish to Journal</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- 7. SEO PAGES -->
+        <section class="admin-view" id="view-seo" style="display: none;">
+          <div class="editor-panel">
+            <h3 style="font-family: var(--font-display); margin-bottom: var(--space-6);">Configure Programmatic SEO Landing Page</h3>
+            <form id="admin-seo-form">
+              <div class="form-group">
+                <label class="form-label" for="seo-keyword">Target Long-Tail Keyword</label>
+                <input type="text" class="form-input" id="seo-keyword" required placeholder="e.g. honeymoon-resort-near-airport">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="seo-intro">Unique Intro Paragraph (Anti-thin penalty guarantee)</label>
+                <textarea class="form-textarea" id="seo-intro" required placeholder="Provide a unique useful description that describes this specific combination query..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-secondary">Register Landing Page</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- 8. ENQUIRY INBOX -->
+        <section class="admin-view" id="view-enquiries" style="display: none;">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sender</th>
+                  <th>Contact</th>
+                  <th>Subject</th>
+                  <th>Message Snippet</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="enquiries-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 9. SECURITY AUDIT LOG -->
+        <section class="admin-view" id="view-audit" style="display: none;">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Trigger User</th>
+                  <th>Action Log Description</th>
+                </tr>
+              </thead>
+              <tbody id="audit-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/camp-config.js"></script>
+  <script src="../js/utils.js?v=1.2"></script>
+  <script src="js/admin-auth.js?v=1.2"></script>
+  <script src="js/admin-app.js?v=1.2"></script>
+</body>
+</html>

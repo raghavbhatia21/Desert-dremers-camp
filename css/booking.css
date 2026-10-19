@@ -1,0 +1,191 @@
+/* ============================================================
+   ROYAL HERITAGE RESORT — Booking Engine Styles
+   ============================================================
+   Wizard step indicators, checkout layout, summaries.
+   ============================================================ */
+
+.booking-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-12) var(--container-padding);
+}
+
+/* Step Progress Indicator */
+.step-progress {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: var(--space-12);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-progress::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: var(--color-sand);
+  z-index: 1;
+}
+
+.step-progress-bar {
+  position: absolute;
+  top: 15px;
+  left: 5%;
+  width: 0%;
+  height: 2px;
+  background: var(--color-gold);
+  z-index: 2;
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--bg-primary);
+  border: 2px solid var(--color-stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  z-index: 3;
+  transition: var(--transition-base);
+}
+
+.step-dot.active {
+  border-color: var(--color-gold);
+  background: var(--color-gold);
+  color: var(--color-black);
+  box-shadow: var(--shadow-gold);
+}
+
+.step-dot.completed {
+  border-color: var(--color-emerald);
+  background: var(--color-emerald);
+  color: var(--color-white);
+}
+
+/* Wizard step panels */
+.step-panel {
+  display: none;
+}
+
+.step-panel.active {
+  display: block;
+  animation: panelFadeIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Booking Layout Grid */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Step 1: Search panel styles */
+.search-card {
+  background: var(--bg-card);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: var(--border-thin);
+}
+
+/* Step 2: Accommodation Selection Cards */
+.select-acc-card {
+  display: flex;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: var(--border-thin);
+  margin-bottom: var(--space-6);
+  transition: var(--transition-base);
+}
+
+.select-acc-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.select-acc-card.selected {
+  border-color: var(--color-gold-dark);
+  background: var(--color-cream);
+  box-shadow: var(--shadow-gold);
+}
+
+.select-acc-img {
+  width: 240px;
+  object-fit: cover;
+}
+
+.select-acc-details {
+  padding: var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .select-acc-card {
+    flex-direction: column;
+  }
+  .select-acc-img {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* Step 3: Summary Sidebar */
+.booking-summary-sidebar {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  border: var(--border-thin);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 100px;
+}
+
+.summary-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  margin-bottom: var(--space-4);
+  border-bottom: var(--border-thin);
+  padding-bottom: var(--space-3);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-3);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-bold);
+  border-top: var(--border-thin);
+  padding-top: var(--space-4);
+  margin-top: var(--space-4);
+  color: var(--color-maroon);
+}

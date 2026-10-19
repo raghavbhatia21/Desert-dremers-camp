@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View detail, pricing, and amenities for our luxury tents and heritage stone cottages at Desert Dreamers Camp. Plan and book your stay.">
+  <title>Accommodation Details | Desert Dreamers Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .detail-container { max-width: 1000px; margin: 0 auto; padding: var(--space-12) var(--space-4); }
+    .detail-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-12); }
+    .image-gallery { width: 100%; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--space-6); position: relative; }
+    .image-gallery img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .spec-table { width: 100%; border-collapse: collapse; margin-top: var(--space-6); }
+    .spec-table td { padding: var(--space-3) 0; border-bottom: var(--border-thin); font-size: var(--fs-body); }
+    .spec-table td:first-child { font-weight: var(--fw-semibold); color: var(--text-primary); }
+    .spec-table td:last-child { text-align: right; color: var(--text-secondary); }
+    .booking-sidebar { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--space-8); border: var(--border-thin); position: sticky; top: 100px; }
+    @media (max-width: 768px) {
+      .detail-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .booking-sidebar { position: relative; top: 0; }
+    }
+  </style>
+</head>
+<body class="page-transition">
+  <header class="site-header scrolled" id="site-header" role="banner"><div class="container"><div class="header-inner"><a href="../index.html" class="logo"><div class="logo-text">Desert Dreamers<span class="logo-subtitle">Camp • Sam Sand Dunes</span></div></a><nav class="main-nav" id="main-nav"><a href="../index.html" class="nav-link">Home</a><a href="accommodations.html" class="nav-link active">Stay</a><a href="amenities.html" class="nav-link">Amenities</a><a href="dining.html" class="nav-link">Dining</a><a href="gallery.html" class="nav-link">Gallery</a><a href="offers.html" class="nav-link">Offers</a><a href="blog.html" class="nav-link">Journal</a><a href="contact.html" class="nav-link">Contact</a></nav><div class="header-cta"><a href="booking.html" class="btn btn-primary btn-sm">Book Now</a></div><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">← Back</button>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="accommodations.html" class="mobile-nav-link active">Stay</a>
+    <a href="amenities.html" class="mobile-nav-link">Amenities</a>
+    <a href="dining.html" class="mobile-nav-link">Dining</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="offers.html" class="mobile-nav-link">Offers</a>
+    <a href="blog.html" class="mobile-nav-link">Journal</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Your Stay</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding: var(--space-32) 0 var(--space-16); background: var(--bg-dark); text-align: center;" class="dark-section">
+      <div class="container">
+        <p class="section-label reveal" style="color: var(--color-gold);">Accommodation Details</p>
+        <h1 class="section-title reveal" style="color: var(--text-on-dark);" id="acc-title-header">Stay Category</h1>
+        <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+      </div>
+    </section>
+    
+    <nav aria-label="Breadcrumb" style="padding: var(--space-4) 0; border-bottom: var(--border-thin);"><div class="container"><p style="font-size: var(--fs-xs); color: var(--text-muted);"><a href="../index.html" style="color: var(--text-muted);">Home</a> <span style="margin: 0 var(--space-2);">→</span> <a href="accommodations.html" style="color: var(--text-muted);">Stay</a> <span style="margin: 0 var(--space-2);">→</span> <span style="color: var(--text-primary);" id="breadcrumb-acc-title">Details</span></p></div></nav>
+
+    <div class="detail-container">
+      <div class="detail-grid">
+        <!-- Left Side: Gallery and Details -->
+        <div class="reveal-left">
+          <div class="image-gallery">
+            <img src="../assets/images/tent.png" alt="Stay Image" id="acc-image">
+          </div>
+          
+          <h2 style="font-family: var(--font-display); font-size: var(--fs-h2); margin-bottom: var(--space-4);" id="acc-title">Stay Category</h2>
+          <p id="acc-desc" style="color: var(--text-secondary); line-height: var(--lh-relaxed); margin-bottom: var(--space-6);">Loading stay details...</p>
+          
+          <h3 style="font-family: var(--font-display); font-size: var(--fs-h4); margin-bottom: var(--space-4);">Specifications & Features</h3>
+          <table class="spec-table">
+            <tbody id="spec-body">
+              <!-- Filled via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Right Side: Sticky Booking Sidebar -->
+        <div class="reveal-right">
+          <div class="booking-sidebar">
+            <h3 style="font-family: var(--font-display); font-size: var(--fs-h4); margin-bottom: var(--space-2);">Your Retreat</h3>
+            <div style="font-size: var(--fs-h2); color: var(--color-maroon); font-weight: var(--fw-bold); margin-bottom: var(--space-6);" id="sidebar-price">₹8,500 <span style="font-size: var(--fs-xs); color: var(--text-muted); font-weight: var(--fw-regular);">/ night</span></div>
+            
+            <form id="sidebar-booking-form">
+              <div class="form-group">
+                <label class="form-label" for="sidebar-checkin">Check-In</label>
+                <input type="date" class="form-input" id="sidebar-checkin" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="sidebar-checkout">Check-Out</label>
+                <input type="date" class="form-input" id="sidebar-checkout" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="sidebar-guests">Guests</label>
+                <select class="form-select" id="sidebar-guests">
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-4);">Reserve Stay</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text">Desert Dreamers<br><span class="logo-subtitle">Camp • Sam Sand Dunes</span></div><p class="footer-about">A luxury desert resort offering royal glamping Swiss tents and dune suites nestled in the golden Sam Sand Dunes of Jaisalmer.</p><div class="footer-social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="YouTube">YT</a></div></div><div><h4 class="footer-heading">Explore</h4><div class="footer-links"><a href="accommodations.html">Tents & Cottages</a><a href="amenities.html">Amenities</a><a href="dining.html">Dining</a><a href="gallery.html">Gallery</a><a href="offers.html">Special Offers</a><a href="blog.html">The Journal</a></div></div><div><h4 class="footer-heading">Information</h4><div class="footer-links"><a href="booking.html">Book a Stay</a><a href="booking-status.html">Check Booking</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div><div><h4 class="footer-heading">Reach Us</h4><div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>Desert Dreamers Camp,<br>Sam Sand Dunes, Near Sunset Point,<br>Jaisalmer, Rajasthan 345001</span></div><div class="footer-contact-item"><span class="footer-contact-icon">📞</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉️</span><span>reservations@desertdreamerscamp.com</span></div></div></div><div class="footer-bottom"><p>&copy; 2026 Desert Dreamers Camp. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></div></div></div></footer>
+  
+  <script src="../js/app.js"></script><script src="../js/animations.js"></script>
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type') || 'tent';
+    
+    const details = {
+      'tent': {
+        title: 'Royal Safari Tent',
+        image: 'assets/images/tent.png',
+        price: '₹8,500',
+        desc: 'Step into a world of regal glamping. Our spacious canvas tents are adorned with heritage textiles, plush bedding, and brass accents. Each tent sits on a private wooden deck overlooking the rolling hills, with en-suite bathroom facilities.',
+        specs: {
+          'Size': '350 sq. ft.',
+          'Occupancy': 'Up to 3 Guests',
+          'Bed Type': 'King-size Bed',
+          'View': 'Valley & Hills',
+          'Bathrooms': 'En-suite private hot shower',
+          'Wi-Fi': 'Complimentary'
+        }
+      },
+      'cottage': {
+        title: 'Heritage Stone Cottage',
+        image: 'assets/images/cottage.png',
+        price: '₹12,000',
+        desc: 'Our hand-built stone cottages blend traditional architecture with modern comfort. Featuring a spacious living area, private garden, and a cozy fireplace, these cottages are ideal for families and extended stays.',
+        specs: {
+          'Size': '550 sq. ft.',
+          'Occupancy': 'Up to 4 Guests',
+          'Bed Type': 'Twin or King-size Bed',
+          'View': 'Private Garden & Valley',
+          'Bathrooms': 'En-suite bath with hot water',
+          'Fireplace': 'Yes, wood-burning'
+        }
+      }
+    };
+
+    const current = details[type] || details['tent'];
+    
+    // Update elements safely
+    document.title = `${current.title} Details — Desert Dreamers Camp`;
+    document.getElementById('acc-title-header').textContent = current.title;
+    document.getElementById('breadcrumb-acc-title').textContent = current.title;
+    document.getElementById('acc-title').textContent = current.title;
+    document.getElementById('acc-desc').textContent = current.desc;
+    document.getElementById('acc-image').src = current.image;
+    document.getElementById('acc-image').alt = current.title;
+    document.getElementById('sidebar-price').textContent = `${current.price} `;
+    
+    const span = document.createElement('span');
+    span.style.fontSize = 'var(--fs-xs)';
+    span.style.color = 'var(--text-muted)';
+    span.style.fontWeight = 'var(--fw-regular)';
+    span.textContent = '/ night';
+    document.getElementById('sidebar-price').appendChild(span);
+
+    // Build specs table safely
+    const specBody = document.getElementById('spec-body');
+    specBody.textContent = '';
+    Object.entries(current.specs).forEach(([key, val]) => {
+      const tr = document.createElement('tr');
+      const tdLabel = document.createElement('td');
+      tdLabel.textContent = key;
+      const tdVal = document.createElement('td');
+      tdVal.textContent = val;
+      tr.appendChild(tdLabel);
+      tr.appendChild(tdVal);
+      specBody.appendChild(tr);
+    });
+
+    // Handle check-in and check-out sync in sidebar
+    const checkin = document.getElementById('sidebar-checkin');
+    const checkout = document.getElementById('sidebar-checkout');
+    if (checkin && checkout) {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dayAfter = new Date(today);
+      dayAfter.setDate(dayAfter.getDate() + 2);
+      
+      const formatDate = (d) => d.toISOString().split('T')[0];
+
+      checkin.min = formatDate(today);
+      checkin.value = formatDate(tomorrow);
+      checkout.min = formatDate(tomorrow);
+      checkout.value = formatDate(dayAfter);
+
+      checkin.addEventListener('change', () => {
+        const checkinDate = new Date(checkin.value);
+        const nextDay = new Date(checkinDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+        checkout.min = formatDate(nextDay);
+        if (new Date(checkout.value) <= checkinDate) {
+          checkout.value = formatDate(nextDay);
+        }
+      });
+    }
+
+    // Sidebar booking form submission
+    const form = document.getElementById('sidebar-booking-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const params = new URLSearchParams({
+          type: type,
+          checkin: checkin.value,
+          checkout: checkout.value,
+          guests: document.getElementById('sidebar-guests').value
+        });
+        window.location.href = `booking.html?${params.toString()}`;
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
